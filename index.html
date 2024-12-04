@@ -4,15 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>yassin</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content {
+            text-align: center;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .counter {
+            margin-top: 15px;
+            font-size: 18px;
+            display: none; /* Hidden by default */
+        }
+    </style>
 </head>
 <body>
-    <div style="width: 100%; height:100vh; display: flex; justify-content: center; align-items:center; ">
-        <div>
-    <h1>yassin is a fat ass</h1>
-    <img src="466549087_1592360684743785_6115903992735517038_n.jpg" >
-    <h1>☝️☝️☝️</h1>
-    <h1>he is the fat ass</h1>
-</div>
-</div>
+    <div class="container">
+        <div class="content">
+            <h1>Yassin is a fat ass</h1>
+            <img src="466549087_1592360684743785_6115903992735517038_n.jpg" alt="Yassin">
+            <h1>☝️☝️☝️</h1>
+            <h1>Is he a fat ass?</h1>
+            <div class="buttons">
+                <button id="agreeBtn">Agree</button>
+                <button id="noAgreeBtn">No Agree</button>
+            </div>
+            <div class="counter" id="counter">
+                <p><span id="agreeCount">0</span> people agreed.</p>
+                <p><span id="noAgreeCount">0</span> people disagreed.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize counters
+        let agreeCount = 1026; // Starting count
+        let noAgreeCount = 0;
+
+        // Get references to DOM elements
+        const agreeBtn = document.getElementById('agreeBtn');
+        const noAgreeBtn = document.getElementById('noAgreeBtn');
+        const agreeDisplay = document.getElementById('agreeCount');
+        const noAgreeDisplay = document.getElementById('noAgreeCount');
+        const counterDiv = document.getElementById('counter');
+
+        // Update the initial display
+        agreeDisplay.textContent = agreeCount;
+        noAgreeDisplay.textContent = noAgreeCount;
+
+        // Event listener for the "Agree" button
+        agreeBtn.addEventListener('click', () => {
+            agreeCount++;
+            agreeDisplay.textContent = agreeCount;
+            showCounter();
+            disableButtons();
+        });
+
+        // Event listener for the "No Agree" button
+        noAgreeBtn.addEventListener('click', () => {
+            noAgreeCount++;
+            noAgreeDisplay.textContent = noAgreeCount;
+            showCounter();
+            disableButtons();
+        });
+
+        // Function to disable buttons after one click
+        function disableButtons() {
+            agreeBtn.disabled = true;
+            noAgreeBtn.disabled = true;
+        }
+
+        // Function to show the counter
+        function showCounter() {
+            counterDiv.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
